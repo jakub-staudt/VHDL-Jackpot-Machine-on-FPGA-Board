@@ -1,0 +1,309 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Mon Nov 24 09:18:25 2025
+# Process ID         : 27124
+# Current directory  : C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.runs/synth_1
+# Command line       : vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file           : C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.runs/synth_1/main.vds
+# Journal file       : C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.runs/synth_1\vivado.jou
+# Running On         : Kuby_Komputer
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 5800H with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 34204 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 43331 MB
+# Available Virtual  : 16915 MB
+#-----------------------------------------------------------
+source main.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/utils_1/imports/synth_1/main.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top main -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 26248
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1044.062 ; gain = 469.414
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:57]
+INFO: [Synth 8-3491] module 'clk_div' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/clk_div.vhd:35' bound to instance 'div' of component 'clk_div' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'clk_div' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/clk_div.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'clk_div' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/clk_div.vhd:43]
+INFO: [Synth 8-3491] module 'sync4bitupTff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:34' bound to instance 'ctr0' of component 'sync4bitupTff' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:149]
+INFO: [Synth 8-638] synthesizing module 'sync4bitupTff' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:41]
+INFO: [Synth 8-3491] module 'Tff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:34' bound to instance 'ff0' of component 'TFF' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'Tff' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:43]
+WARNING: [Synth 8-614] signal 'T' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'Tff' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:43]
+INFO: [Synth 8-3491] module 'Tff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:34' bound to instance 'ff1' of component 'TFF' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:66]
+INFO: [Synth 8-3491] module 'Tff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd:34' bound to instance 'ff2' of component 'TFF' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'sync4bitupTff' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:41]
+INFO: [Synth 8-3491] module 'sync4bitupTff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:34' bound to instance 'ctr1' of component 'sync4bitupTff' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:150]
+INFO: [Synth 8-3491] module 'sync4bitupTff' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd:34' bound to instance 'ctr2' of component 'sync4bitupTff' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:151]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/MUX.vhd:34' bound to instance 'swit' of component 'MUX' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:154]
+INFO: [Synth 8-638] synthesizing module 'MUX' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/MUX.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'MUX' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/MUX.vhd:42]
+INFO: [Synth 8-3491] module 'dec2to4' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/dec2to4.vhd:34' bound to instance 'dec' of component 'dec2to4' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'dec2to4' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/dec2to4.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'dec2to4' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/dec2to4.vhd:39]
+INFO: [Synth 8-3491] module 'abcd_to_7seg' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/abcd_to_7seg.vhd:34' bound to instance 'seg7' of component 'abcd_to_7seg' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'abcd_to_7seg' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/abcd_to_7seg.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'abcd_to_7seg' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/abcd_to_7seg.vhd:40]
+INFO: [Synth 8-3491] module 'RBG_leds' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd:35' bound to instance 'rgbLeft' of component 'RBG_leds' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'RBG_leds' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd:43]
+INFO: [Synth 8-226] default block is never used [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd:71]
+INFO: [Synth 8-256] done synthesizing module 'RBG_leds' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd:43]
+INFO: [Synth 8-3491] module 'RBG_leds' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd:35' bound to instance 'rgbRight' of component 'RBG_leds' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:159]
+INFO: [Synth 8-3491] module 'JackpotMachine' declared at 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:36' bound to instance 'JackMach' of component 'JackpotMachine' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'JackpotMachine' [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:56]
+WARNING: [Synth 8-614] signal 'cnt_run_state' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:118]
+WARNING: [Synth 8-614] signal 'Yctr0' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:118]
+WARNING: [Synth 8-614] signal 'Yctr1' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:118]
+WARNING: [Synth 8-614] signal 'Yctr2' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:118]
+WARNING: [Synth 8-614] signal 'last_state' is read in the process but is not in the sensitivity list [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:118]
+INFO: [Synth 8-256] done synthesizing module 'JackpotMachine' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'main' (0#1) [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd:57]
+WARNING: [Synth 8-3848] Net test in module/entity JackpotMachine does not have driver. [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd:50]
+WARNING: [Synth 8-3917] design main has port Yseg7[7] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[7] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[6] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[5] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[4] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[3] driven by constant 1
+WARNING: [Synth 8-7129] Port test[1] in module JackpotMachine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port test[0] in module JackpotMachine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_med in module JackpotMachine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_slow in module RBG_leds is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S in module Tff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RGBin[1] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RGBin[0] in module main is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1151.344 ; gain = 576.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1151.344 ; gain = 576.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1151.344 ; gain = 576.695
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1151.344 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/constrs_1/new/main.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1237.578 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1237.578 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1237.578 ; gain = 662.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1237.578 ; gain = 662.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1237.578 ; gain = 662.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1237.578 ; gain = 662.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   4 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 5     
+	   3 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 11    
+	   8 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design main has port Yseg7[7] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[7] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[6] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[5] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[4] driven by constant 1
+WARNING: [Synth 8-3917] design main has port Yan7[3] driven by constant 1
+WARNING: [Synth 8-7129] Port test[1] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port test[0] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RGBin[1] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RGBin[0] in module main is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 1237.578 ; gain = 662.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:01:01 . Memory (MB): peak = 1341.492 ; gain = 766.844
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:01:01 . Memory (MB): peak = 1341.906 ; gain = 767.258
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:01:01 . Memory (MB): peak = 1370.555 ; gain = 795.906
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    18|
+|3     |LUT1   |     8|
+|4     |LUT2   |    22|
+|5     |LUT3   |    10|
+|6     |LUT4   |     9|
+|7     |LUT5   |     8|
+|8     |LUT6   |    47|
+|9     |FDCE   |    11|
+|10    |FDPE   |     8|
+|11    |FDRE   |    73|
+|12    |FDSE   |     2|
+|13    |IBUF   |     6|
+|14    |OBUF   |    30|
+|15    |OBUFT  |     2|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:01:06 . Memory (MB): peak = 1567.902 ; gain = 907.020
+Synthesis Optimization Complete : Time (s): cpu = 00:01:03 ; elapsed = 00:01:10 . Memory (MB): peak = 1567.902 ; gain = 993.254
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1567.902 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1567.902 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 622b447e
+INFO: [Common 17-83] Releasing license: Synthesis
+53 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:50 . Memory (MB): peak = 1567.902 ; gain = 1198.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1567.902 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt - fully working Jackpot - final project V2 -Copy2/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.runs/synth_1/main.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 24 09:20:26 2025...

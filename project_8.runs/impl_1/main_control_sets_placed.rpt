@@ -1,0 +1,88 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Nov 24 09:21:47 2025
+| Host         : Kuby_Komputer running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    10 |
+|    Minimum number of control sets                        |    10 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    50 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    10 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              25 |           10 |
+| No           | No                    | Yes                    |              19 |            9 |
+| No           | Yes                   | No                     |              34 |           10 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              16 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+-----------------------+--------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |     Enable Signal     |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+-----------------------+--------------------------------+------------------+----------------+--------------+
+|  div/CLK_BUFG        |                       | JackMach/tmpDisplayPwr_i_2_n_0 |                1 |              1 |         1.00 |
+|  div/clk_slow_ctr[0] |                       | JackMach/R_CLR                 |                1 |              3 |         3.00 |
+|  div/clk_slow_ctr[2] |                       | JackMach/R_CLR                 |                2 |              3 |         1.50 |
+|  div/clk_slow_ctr[1] |                       | JackMach/R_CLR                 |                1 |              3 |         3.00 |
+|  div/CLK_BUFG        |                       |                                |                4 |              4 |         1.00 |
+|  div/CLK_BUFG        |                       | R_IBUF                         |                4 |              9 |         2.25 |
+|  div/CLK_BUFG        | JackMach/EN_Flash7Seg | JackMach/disp_counter0         |                4 |             16 |         4.00 |
+|  CLK_IBUF_BUFG       |                       | rgbLeft/eqOp                   |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG       |                       | rgbRight/eqOp                  |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG       |                       |                                |                6 |             21 |         3.50 |
++----------------------+-----------------------+--------------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,53 @@
+----------------------------------------------------------------------------------
+-- Company: Kr - CLK_DIV
+-- Engineer: 
+-- 
+-- Create Date: 04/24/2024 02:43:46 PM
+-- Design Name: 
+-- Module Name: CLK_DIVIDER - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.all;
+use IEEE.numeric_std.all;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity CLK_DIV is
+    Port ( CLKin : in STD_LOGIC;
+           CLKout : out STD_LOGIC);
+end CLK_DIV;
+
+architecture Behavioral of CLK_DIV is
+
+signal clkBUFF: std_logic_vector(26 downto 0) := (others => '0');
+
+begin
+process(CLKin)
+begin
+if(rising_edge(CLKin)) then
+clkBUFF <= clkBUFF + 1;
+end if;
+end process;
+CLKout<=clkBUFF(26);
+end Behavioral;

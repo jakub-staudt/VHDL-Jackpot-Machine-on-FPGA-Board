@@ -1,0 +1,343 @@
+----------------------------------------------------------------------------------
+-- Company: Kr - main
+-- Engineer:
+--
+-- Create Date: 04/24/2024 02:02:13 PM
+-- Design Name:
+-- Module Name: main - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool Versions:
+-- Description:
+--
+-- Dependencies:
+--
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.all;
+use IEEE.numeric_std.all;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity main is
+Port ( CLK : in STD_LOGIC;
+R : in STD_LOGIC;
+A: in std_logic;
+B: in std_logic;
+CLKOUT: out std_logic;
+Y : out STD_LOGIC_VECTOR (3 downto 0);
+YAN: out std_logic_vector(7 downto 0);
+Y7SEG: out std_logic_vector(7 downto 0);
+YbcdOUT: out std_logic_vector(4 downto 0);
+RGB : out STD_LOGIC_VECTOR (2 downto 0);
+RGB1 : out STD_LOGIC_VECTOR (2 downto 0)
+);
+
+end main;
+
+architecture Behavioral of main is
+
+component sync4bitupTff is
+Port ( CLK : in STD_LOGIC;
+R : in STD_LOGIC;
+Y : out STD_LOGIC_VECTOR (3 downto 0));
+end component;
+
+component CLK_DIV is
+Port ( CLKin : in STD_LOGIC;
+CLKout : out STD_LOGIC);
+end component;
+
+component CLK_DIV_F is
+Port ( CLKin : in STD_LOGIC;
+CLKout : out STD_LOGIC);
+end component;
+
+component abcd_to_7seg is
+Port ( X : in STD_LOGIC_VECTOR (3 downto 0);
+Y : out STD_LOGIC_VECTOR (6 downto 0));
+end component;
+
+component bin4_to_bcd5 is
+Port ( X : in STD_LOGIC_VECTOR (3 downto 0);
+Y : out STD_LOGIC_VECTOR (4 downto 0));
+end component;
+
+component dec2to4 is
+Port ( X : in STD_LOGIC_VECTOR (2 downto 0);
+Y : out STD_LOGIC_VECTOR (7 downto 0));
+end component;
+
+component MUX0 is
+Port(   S: in std_logic_vector(2 downto 0);
+            X0: in std_logic_vector(3 downto 0);
+            X1: in std_logic_vector(3 downto 0);
+            X2: in std_logic_vector(3 downto 0);
+            X3: in std_logic_vector(3 downto 0);
+            X4: in std_logic_vector(3 downto 0);
+            X5: in std_logic_vector(3 downto 0);
+            X6: in std_logic_vector(3 downto 0);
+            X7: in std_logic_vector(3 downto 0);
+            Y: out std_logic_vector(3 downto 0));
+end component;
+
+component RGBLED is
+Port ( color : in STD_LOGIC_VECTOR (1 downto 0);
+CLK : in STD_LOGIC;
+CLKslow : in STD_LOGIC;
+RGB : out STD_LOGIC_VECTOR (2 downto 0));
+end component;
+
+component CLK_DIV_S is
+Port ( CLKin : in STD_LOGIC;
+           CLKout : out STD_LOGIC);
+end component;
+
+component adder4 is
+Port (A: in std_logic_vector(3 downto 0);
+B: in std_logic_vector(3 downto 0);
+Sum: out std_logic_vector(3 downto 0);
+Cout: out std_logic);
+end component;
+
+type state_type is(stop, ready, go, slow, stopped, error, startup);
+signal next_state, next_state1, current_state, current_state1: state_type;
+
+signal tmpclk, tmpclk_f: std_logic;
+signal CNTOUT,Ncntout, Ymux: std_logic_vector(3 downto 0);
+signal AN: std_logic_vector(7 downto 0);
+signal Ybcd: std_logic_vector(4 downto 0);
+signal temps: std_logic_vector(2 downto 0);
+signal IN0, IN1, IN2, IN3, IN4, IN5, IN6, IN7: std_logic_vector(3 downto 0);
+signal Yabcd: std_logic_vector(6 downto 0);
+signal color, color1: STD_LOGIC_VECTOR (1 downto 0);
+signal T: std_logic_vector(3 downto 0);
+
+signal tmpclkslow, tmpclkslow1, tmpclk1: std_logic;
+signal cntoutslow: std_logic_vector(3 downto 0);
+signal Ybcds, Ybcdsum: std_logic_vector(4 downto 0);
+
+signal tempsum: std_logic_vector(3 downto 0);
+
+signal tempdiode: std_logic_vector(2 downto 0);
+signal overflow: std_logic;
+signal overflowmax: std_logic_vector(2 downto 0);
+
+signal period, pulse : std_logic_vector (15 downto 0) := (others=>'0');
+signal clk2 : std_logic;
+signal tmpclk2: std_logic_vector(2 downto 0);
+
+begin
+
+div0: component CLK_DIV port map (CLKin=>CLK, CLKout=>tmpclk); -- tff
+div1: component CLK_DIV_F port map (CLKin=>CLK, CLKout=>tmpclk_f);  --2to4  decoder
+div2: component CLK_DIV_S port map (Clkin=>CLK, CLKout=>tmpclkslow);
+CNT0: component sync4bitupTff port map (CLK=>tmpclk1, R=> R, Y=>cntout);
+CNT1: component sync4bitupTff port map (CLK=>tmpclkslow1, R=> R, Y=>cntoutslow);
+bcd0: component bin4_to_bcd5 port map (X=>cntout, Y=>Ybcd);
+bcd1: component bin4_to_bcd5 port map (X=>cntoutslow, Y=>Ybcds);
+bcd2: component bin4_to_bcd5 port map (X=>tempsum, Y=>Ybcdsum);
+dec0: component dec2to4 port map (X=>temps,Y=>AN);
+mux2: component MUX0 port map (S=>temps,X0=> IN0, X1=> IN1,X2=>IN2,X3=>IN3,X4=>IN4,X5=>IN5,X6=>IN6,X7=>IN7,Y=>Ymux);
+abcd0: component abcd_to_7seg port map (X=> Ymux, Y=> Yabcd);
+
+
+adder: component adder4 port map (A=>cntout, B=>cntoutslow, Sum=>tempsum, Cout=>overflow);
+
+tempdiode<="100";
+
+overflowmax<=(others=>overflow);
+tmpclk2<=(others=>clk2);
+
+
+RGB<=tempdiode and overflowmax and tmpclk2; 
+RGB1<=tempdiode and overflowmax and tmpclk2;
+
+process(CLK)
+begin
+if(rising_edge(CLK)) then
+period<= period + 1;
+pulse <= pulse + 1;
+if(period=40000)then
+period<=(others=>'0');
+pulse<=(others=>'0');
+clk2<='1';
+elsif(pulse=100)then
+clk2<='0';
+end if;
+end if;
+end process;
+
+T<=Ncntout;
+
+current_state <= next_state;
+current_state1 <= next_state1;
+
+tmpclk1<=tmpclk and not A; -- one counter
+tmpclkslow1<=tmpclkslow and not B; -- second counter
+
+-- first diode
+process(tmpclk,R)
+begin
+if(R='1')then
+next_state <= error;
+color<="00";
+elsif(rising_edge(tmpclk))then
+case current_state is
+when stop =>
+color<="11";
+if(T=2)then
+next_state <= ready;
+end if;
+                    
+when ready =>
+color<="10";
+if(T=1)then
+next_state <= go;
+end if;
+                    
+when go =>
+color<="01";
+if(T =3)then
+next_state <= slow;
+end if;
+                    
+when slow =>
+color<="10";
+if(T=2)then
+next_state <= stopped;
+end if;
+                    
+when stopped =>
+color<="11";
+if(T=1)then
+next_state <= stop;
+end if;
+                    
+when error =>
+color<="00";
+if(T=1) then
+next_state <= startup;
+end if;
+                    
+when startup =>
+color<="11";
+if(T=1)then
+next_state <= stop;
+end if;
+                    
+when others =>
+color<="00";
+if(T=1)then
+next_state <= startup;
+end if;    
+end case; 
+end if;
+end process;
+
+-- second diode
+process(tmpclk,R)
+begin
+if(R='1')then
+next_state1 <= error;
+color1<="00";
+elsif(rising_edge(tmpclk))then
+case current_state1 is
+when stop =>
+color1<="11";
+if(T=2)then
+next_state1 <= ready;
+end if;
+                    
+when ready =>
+color1<="10";
+if(T=1)then
+next_state1 <= go;
+end if;
+                    
+when go =>
+color1<="01";
+if(T=3)then
+next_state1 <= slow;
+end if;
+                    
+when slow =>
+color1<="10";
+if(T=2)then
+next_state1 <= stopped;
+end if;
+                    
+when stopped =>
+color1<="11";
+if(T=1)then
+next_state1 <= stop;
+end if;
+                    
+when error =>
+color1<="00";
+if(T=1) then
+next_state1 <= startup;
+end if;
+                    
+when startup =>
+color1<="11";
+if(T=1)then
+next_state1 <= go;
+end if;
+                    
+when others =>
+color1<="00";
+if(T=1)then
+next_state1 <= startup;
+end if;    
+end case; 
+end if;
+end process;
+
+process(tmpclk_f)
+begin
+if(rising_edge(tmpclk_f)) then
+temps <= temps + 1;
+end if;
+end process;
+
+IN4<=Ybcds(3 downto 0);
+IN5(0)<=Ybcds(4);
+IN5(3 downto 1)<="000";
+IN6<=Ybcd(3 downto 0);
+IN7(0)<=Ybcd(4);
+IN7(3 downto 1)<="000";
+--
+IN0<=Ybcdsum(3 downto 0);
+IN1(0)<=Ybcdsum(4);
+IN1(3 downto 1)<="000";
+IN2<="0000";
+IN3<="0000";
+
+Ncntout<= not cntout;
+Y <= CNTOUT;
+CLKOUT<= tmpclk;
+
+
+YAN(7 downto 0)<=not AN;
+YAN(2)<='1'; --off
+YAN(3)<='1'; --off
+Y7SEG(6 downto 0)<= not Yabcd;
+Y7SEG(7)<='1'; --off
+
+YbcdOUT <= Ybcd;
+end Behavioral;

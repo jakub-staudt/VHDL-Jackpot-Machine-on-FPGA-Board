@@ -1,0 +1,224 @@
+----------------------------------------------------------------------------------
+-- Company: main
+-- Engineer: 
+-- 
+-- Create Date: 04/23/2025 11:30:17 AM
+-- Design Name: 
+-- Module Name: main - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity main is
+        Port (  CLK : in std_logic;
+                RGBin: in std_logic_vector (1 downto 0);
+                RGBout: out std_logic_vector (2 downto 0);
+                RGBout2: out std_logic_vector (2 downto 0);
+                A : in std_logic;
+                B : in std_logic;
+                R : in std_logic;
+                LED_overflow : out std_logic;
+                clk_out: out std_logic;
+                Ybcd : out std_logic_vector( 4 downto 0);             
+                Yout: out std_logic_vector (3 downto 0); -- LEDs next to the buttons showing the 4-bit counter output in binary
+                Yseg7: out  std_logic_vector (7 downto 0); 
+                Yan7: out  std_logic_vector (7 downto 0));  -- The anodes, selects which digits should be filled with the Yseg7 inidividual lights      
+end main;
+
+architecture Behavioral of main is
+
+
+component sync4bitupTff is
+Port ( CLK : in STD_LOGIC;
+           R : in STD_LOGIC;
+           Y : out STD_LOGIC_VECTOR (3 downto 0));
+end component;
+
+component clk_div is
+ Port ( CLK_IN : in STD_LOGIC;
+         CLK_OUT : out STD_LOGIC;
+         CLK_OUT2 : out STD_LOGIC);
+end component;
+
+component abcd_to_7seg is
+    Port ( X : in STD_LOGIC_VECTOR (3 downto 0);
+           Y : out STD_LOGIC_VECTOR (6 downto 0));
+end component;
+
+component MUX is
+    Port ( X0 : in STD_LOGIC_VECTOR (3 downto 0);
+           X1 : in STD_LOGIC_VECTOR (3 downto 0);
+           X2 : in STD_LOGIC_VECTOR (3 downto 0);
+           X3 : in STD_LOGIC_VECTOR (3 downto 0);
+           X4 : in STD_LOGIC_VECTOR (3 downto 0);
+           X5 : in STD_LOGIC_VECTOR (3 downto 0);
+           X6 : in STD_LOGIC_VECTOR (3 downto 0);
+           X7 : in STD_LOGIC_VECTOR (3 downto 0);
+           Ymux : out STD_LOGIC_VECTOR (3 downto 0);
+           S : in STD_LOGIC_VECTOR (2 downto 0));
+end component;
+
+component dec2to4 is
+    Port ( Xdec : in STD_LOGIC_VECTOR (2 downto 0);
+           Ydec : out STD_LOGIC_VECTOR (7 downto 0));
+end component;
+
+component bin4_to_bcd5 is
+    Port ( X : in STD_LOGIC_VECTOR (3 downto 0);
+           Y : out STD_LOGIC_VECTOR (4 downto 0));
+end component;
+
+component RBG_leds is
+ Port     ( color_state : in STD_LOGIC_VECTOR (1 downto 0);
+           RGBout : out STD_LOGIC_VECTOR (2 downto 0);
+           clk : in STD_LOGIC;
+           clk_slow : in STD_LOGIC);
+           
+end component;
+
+component adder4 is
+    Port (A: in std_logic_vector(3 downto 0);
+    B: in std_logic_vector(3 downto 0);
+    Sum: out std_logic_vector(3 downto 0);
+    Cout: out std_logic);
+end component;
+
+
+signal clk_slow, clk_fast : std_logic;
+
+signal Sig_tmp : std_logic_vector ( 2 downto 0) :="000";
+signal Yctr_tmp, Yctr_tmp2, Yanode : std_logic_vector ( 7 downto 0);
+signal Ybcd_tmp1, Ybcd_tmp2, Ybcdsum : std_logic_vector ( 4 downto 0);
+signal Yabcd_tmp, Yctr_tmp_sum : std_logic_vector ( 3 downto 0);
+signal DIG0, DIG1, DIG2, DIG3, DIG4, DIG5, DIG6, DIG7 : std_logic_vector ( 3 downto 0);
+signal Yabcdseg : std_logic_vector ( 6 downto 0);
+signal overflow: std_logic;
+signal clk_slow_sw, clk_fast_sw : std_logic;
+--signal RGB1 : std_logic_vector (1 downto 0);
+
+
+begin
+div: component clk_div port map (CLK_IN => CLK, CLK_OUT => clk_slow, CLK_OUT2 => clk_fast);   
+ctr0: component sync4bitupTff port map ( CLK=>CLK_slow_sw , R=> R, Y=>Yctr_tmp); 
+ctr1: component sync4bitupTff port map ( CLK=>clk_fast_sw , R=> R, Y=>Yctr_tmp2);
+bcd0: component bin4_to_bcd5 port map (X =>Yctr_tmp  , Y=>Ybcd_tmp1);
+bcd1: component bin4_to_bcd5 port map (X =>Yctr_tmp2  , Y=>Ybcd_tmp2);
+bcd2: component bin4_to_bcd5 port map (X =>Yctr_tmp_sum  , Y=>Ybcdsum);
+dec0: component dec2to4 port map (Xdec => Sig_tmp, Ydec => Yanode);
+mux0: component MUX port map (S => Sig_tmp, X0 => DIG0, X1 => DIG1, X2 => DIG2, X3 => DIG3, X4 => DIG4, 
+                X5 => DIG5, X6 => DIG6, X7 => DIG7, Ymux => Yabcd_tmp);
+
+seg7: component  abcd_to_7seg port map (X => Yabcd_tmp, Y =>Yabcdseg);
+
+rgb0: component RBG_leds port map (color_state => RGBin , RGBout => RGBout, clk => clk, clk_slow => clk_slow);
+rgb1: component RBG_leds port map (color_state => RGBin , RGBout => RGBout2, clk => clk, clk_slow => clk_slow);
+
+add0: component adder4 port map (A=>Yctr_tmp, B=>Yctr_tmp2, Sum=>Yctr_tmp_sum, Cout=>overflow);
+
+LED_overflow <= overflow;
+
+--CLKs with buttons
+clk_slow_sw <= clk_slow and not A; -- one counter
+clk_fast_sw <= clk_fast and not B; -- second counter
+
+--EDIT----------------------------------------
+-- 4 digits value for entire display
+DIG4 <= Ybcd_tmp1 (3 downto 0);
+DIG5(0) <= Ybcd_tmp1(4);
+DIG5(3 downto 1) <= "000";
+
+DIG6 <= Ybcd_tmp2 (3 downto 0);
+DIG7(0) <= Ybcd_tmp2(4);
+DIG7(3 downto 1) <= "000";
+
+---
+
+DIG0 <= Ybcdsum (3 downto 0);  --0s number
+DIG1(0) <= Ybcdsum(4); --10s number
+DIG1(3 downto 1) <= "000"; --10s number (fill up)
+
+DIG2(3 downto 0) <= "0000"; 
+DIG3(3 downto 0) <= "0000";
+---
+
+
+
+-- 4 digits value for entire display
+--DIG0 <= Ybcd_tmp1 (3 downto 0);  --0s number
+--DIG1(0) <=Ybcd_tmp1(4); --10s number
+--DIG1(3 downto 1) <= "000"; --10s number (fill up)
+--DIG2 <= "0000"; 
+--DIG3 <= "0000";
+ --EDIT----------------------------------------
+
+-- 2-bit signal counter, which acts as a selector for the multiplexer and the dec2to4
+process(clk_fast)
+begin
+    if rising_edge(clk_fast) then
+        Sig_tmp <= Sig_tmp +1; 
+    end if;
+end process;
+
+
+
+CLK_OUT <= clk_slow; -- LED (V11) flashes, used for debugging
+Yout <= Yctr_tmp;
+Ybcd <= Ybcd_tmp1;
+
+
+--EDIT----------------------------------------
+--7seg
+Yseg7(6 downto 0) <= not Yabcdseg;  --display is active-low
+Yseg7(7) <= '1';                    -- dp off
+Yan7 <= not Yanode;     -- active low 8bit
+--Anode
+Yan7(7 downto 0)<= not Yanode;
+Yan7(2)<='1'; --off
+Yan7(3)<='1'; --off
+
+Yan7(1 downto 0)<= not Yanode(1 downto 0);
+Yan7(2)<='1'; --off
+Yan7(3)<='1'; --off
+Yan7(7 downto 4)<= not Yanode(7 downto 4);
+
+--EDIT----------------------------------------
+
+--original
+--Yseg7(7) <= not '0';
+--Yseg7(6 downto 0) <= not Yabcdseg;
+--Yan7(3 downto 0) <= not Yanode; -- RHS display select
+--Yan7(7 downto 4) <= not "0000"; --LHS display select
+
+--Yseg7(7) <= not '0';
+--Yseg7(6 downto 0) <= not Yabcdseg;
+--Yan7(3 downto 0) <= not Yanode; -- RHS display select
+--Yan7(7 downto 4) <= not "0000"; --LHS display select
+
+
+--RGBout <= RGBin;
+
+end Behavioral;

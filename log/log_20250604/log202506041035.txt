@@ -1,0 +1,60 @@
+----------------------------------------------------------------------------------
+-- Company: adder4
+-- Engineer: 
+-- 
+-- Create Date: 06/03/2025 11:25:21 PM
+-- Design Name: 
+-- Module Name: adder4 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity adder4 is
+    Port (A: in std_logic_vector(3 downto 0);
+    B: in std_logic_vector(3 downto 0);
+    Sum: out std_logic_vector(3 downto 0);
+    Cout: out std_logic);
+end adder4;
+
+architecture Behavioral of adder4 is
+
+
+component fullbitadder is
+    Port( A: in std_logic;
+    B: in std_logic;
+    Cin: in std_logic;
+    S: out std_logic;
+    Cout: out std_logic);
+end component;
+
+signal Ctemp : std_logic_vector(2 downto 0);
+
+begin
+addbit0: component fullbitadder port map (A=>A(0),B=>B(0),Cin=>'0',S=>Sum(0),Cout=>Ctemp(0));
+addbit1: component fullbitadder port map (A=>A(1),B=>B(1),Cin=>Ctemp(0),S=>Sum(1),Cout=>tempC(1));
+addbit2: component fullbitadder port map (A=>A(2),B=>B(2),Cin=>Ctemp(1),S=>Sum(2),Cout=>tempC(2));
+addbit3: component fullbitadder port map (A=>A(3),B=>B(3),Cin=>Ctemp(2),S=>Sum(3),Cout=>Cout);
+
+end Behavioral;

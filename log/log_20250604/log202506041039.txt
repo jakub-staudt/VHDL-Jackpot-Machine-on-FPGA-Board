@@ -1,0 +1,7 @@
+FUll substractor
+
+A,B,Bin | D,Bout
+
+D <= A xor Bin
+Bout <= Bin(A'+B)+A'B
+

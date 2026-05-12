@@ -1,0 +1,65 @@
+----------------------------------------------------------------------------------
+-- Company: Kr - mux
+-- Engineer: 
+-- 
+-- Create Date: 05/08/2024 03:04:14 PM
+-- Design Name: 
+-- Module Name: MUX0 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity MUX0 is
+    Port(   S: in std_logic_vector(2 downto 0);
+            X0: in std_logic_vector(3 downto 0);
+            X1: in std_logic_vector(3 downto 0);
+            X2: in std_logic_vector(3 downto 0);
+            X3: in std_logic_vector(3 downto 0);
+            X4: in std_logic_vector(3 downto 0);
+            X5: in std_logic_vector(3 downto 0);
+            X6: in std_logic_vector(3 downto 0);
+            X7: in std_logic_vector(3 downto 0);
+            Y: out std_logic_vector(3 downto 0));
+end MUX0;
+
+architecture Behavioral of MUX0 is
+
+signal S0,S1,S2 : STD_LOGIC_VECTOR(3 downto 0);
+
+begin
+
+S0<=(others => S(0));
+S1<=(others => S(1));
+S2<=(others => S(2));
+Y<=(not S2 and not S1 and not S0 and X0) or 
+(not S2 and not S1 and S0 and X1) or 
+(not S2 and S1 and not S0 and X2) or 
+(not S2 and S1 and S0 and X3) or
+(S2 and not S1 and not S0 and X4) or 
+(S2 and not S1 and S0 and X5) or 
+(S2 and S1 and not S0 and X6) or 
+(S2 and S1 and S0 and X7);
+
+end Behavioral;

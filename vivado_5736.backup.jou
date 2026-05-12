@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Apr 30 14:45:15 2025
+# Process ID: 5736
+# Current directory: C:/Users/Student/Documents/275540_PKedz/project_8_final/project_8
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10564 C:\Users\Student\Documents\275540_PKedz\project_8_final\project_8\project_8.xpr
+# Log file: C:/Users/Student/Documents/275540_PKedz/project_8_final/project_8/vivado.log
+# Journal file: C:/Users/Student/Documents/275540_PKedz/project_8_final/project_8\vivado.jou
+# Running On        :LAB39-11
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 7 5700G with Radeon Graphics         
+# CPU Frequency     :3793 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :14920 MB
+# Swap memory       :2281 MB
+# Total Virtual     :17201 MB
+# Available Virtual :10659 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Student/Documents/275540_PKedz/project_8_final/project_8/project_8.xpr

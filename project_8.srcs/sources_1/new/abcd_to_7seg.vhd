@@ -1,0 +1,63 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 23.04.2024 16:27:41
+-- Design Name: 
+-- Module Name: bcdto7seg - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity abcd_to_7seg is
+    Port ( DisplayPwr : in STD_LOGIC;
+           X : in STD_LOGIC_VECTOR (3 downto 0);
+           Y : out STD_LOGIC_VECTOR (6 downto 0)); --segment output (a-g) of the display
+end abcd_to_7seg;
+
+architecture Behavioral of abcd_to_7seg is
+
+begin
+
+--Y(0)<=(not X(2) and not X(0)) or X(1) or (X(2) and X(0)) or X(3);
+--Y(1)<=not X(2) or (not X(1) and not X(0)) or (X(1) and X(0));
+--Y(2)<=not X(1) or X(0) or X(2);
+--Y(3)<=(not X(2) and not X(0)) or (not X(2) and X(1)) or (X(2) and not X(1) and X(0)) or (X(1) and not X(0)) or X(3);
+--Y(4)<=(not X(2) and not X(0)) or (X(1) and not X(0));
+--Y(5)<=(not X(1) and not X(0)) or (X(2) and not X(1)) or (X(2) and not X(0)) or X(3);
+--Y(6)<=(not X(2) and X(1)) or (X(2) and not X(1)) or X(3) or (X(2) and not X(0));
+ 
+
+Y(0)<=((not X(2) and not X(0)) or X(1) or (X(2) and X(0)) or X(3)) and DisplayPwr;
+Y(1)<=(not X(2) or (not X(1) and not X(0)) or (X(1) and X(0))) and DisplayPwr;
+Y(2)<=(not X(1) or X(0) or X(2)) and DisplayPwr;
+Y(3)<=((not X(2) and not X(0)) or (not X(2) and X(1)) or (X(2) and not X(1) and X(0)) or (X(1) and not X(0)) or X(3)) and DisplayPwr;
+Y(4)<=((not X(2) and not X(0)) or (X(1) and not X(0)))and DisplayPwr;
+Y(5)<=((not X(1) and not X(0)) or (X(2) and not X(1)) or (X(2) and not X(0)) or X(3))and DisplayPwr;
+Y(6)<=((not X(2) and X(1)) or (X(2) and not X(1)) or X(3) or (X(2) and not X(0))) and DisplayPwr;
+
+
+
+end Behavioral;

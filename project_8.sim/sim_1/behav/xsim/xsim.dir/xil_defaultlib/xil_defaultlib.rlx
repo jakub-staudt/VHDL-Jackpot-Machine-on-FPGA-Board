@@ -1,0 +1,14 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/JackpotMachine.vhd,1763289015,vhdl,,,,jackpotmachine,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/MUX.vhd,1762982471,vhdl,,,,mux,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/RBG_leds.vhd,1763211636,vhdl,,,,rbg_leds,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/Tff.vhd,1762871249,vhdl,,,,tff,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/abcd_to_7seg.vhd,1763211992,vhdl,,,,abcd_to_7seg,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/clk_div.vhd,1762983295,vhdl,,,,clk_div,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/dec2to4.vhd,1762716216,vhdl,,,,dec2to4,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main.vhd,1763289272,vhdl,,,,main,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/main_TB.vhd,1763289781,vhdl,,,,main_tb,,,,,,,,
+C:/Users/jakub/Documents/PWr/Semester 7/Jackpot_project - Jakub Staudt/project_10rgb/Jackpot_project_Jakub_Staudt/project_8.srcs/sources_1/new/sync4bitupTff.vhd,1762981193,vhdl,,,,sync4bituptff,,,,,,,,
