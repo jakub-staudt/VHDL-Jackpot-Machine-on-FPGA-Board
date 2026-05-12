@@ -6,6 +6,8 @@ A digital slot machine implemented in VHDL for the Xilinx Nexus A7 FPGA board. P
 
 This project implements a classic three-digit jackpot machine using synchronous counters, multiplexing, and state machines. When three independent 3-bit counters are running and you press buttons to stop them individually, the system checks if all three digits are equal. If they are, the 7-segment display flashes rapidly, and RGB LEDs light up to indicate your jackpot win.
 
+[![Watch the video](images/youtube-thumbnail.png)](https://youtu.be/ZC89R0Oh2PM?si=pRp1y0WykItvzwdK)
+
 ### Key Features
 - **Three Independent 3-Bit Counters** (0-7 cycle): Each controlled by a separate button press
 - **Real-Time Display Multiplexing**: Three 7-segment displays show all digits simultaneously
