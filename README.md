@@ -356,28 +356,6 @@ when "10" =>
 
 ---
 
-## 📝 License & Credits
-
-This project demonstrates fundamental FPGA design concepts including:
-- Synchronous counter design
-- Display multiplexing
-- State machine implementation
-- Clock management
-- Combinational logic (decoders, multiplexers)
-
-Feel free to modify and extend for educational purposes!
-
----
-
-## 🐛 Known Limitations
-
-1. **No Button Debouncing**: Rapid button presses may cause skipped counts
-2. **Counter Range**: 3-bit counters cycle 0-7 only; BCD mode commented out
-3. **Single Clock Source**: Uses internal FPGA clock; no external clock input
-4. **Limited RGB Control**: Fixed colors (red, green, yellow) for simplicity
-
----
-
-**Last Updated**: May 2026  
+**Last Updated**: November 2025  
 **Target Platform**: Xilinx Nexus A7 FPGA (Digilent)  
 **Language**: VHDL (IEEE 1076)
