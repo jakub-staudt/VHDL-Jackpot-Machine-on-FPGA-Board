@@ -23,7 +23,7 @@ This project implements a classic three-digit jackpot machine using synchronous 
 ## 🏗️ Architecture & How It Works
 
 ### System Block Diagram
-![FPGA Board](images/program structure.png)
+![FPGA Board](images/program_structure.png)
 
 ### Detailed Component Description
 
