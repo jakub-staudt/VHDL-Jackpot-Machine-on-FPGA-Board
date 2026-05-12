@@ -23,26 +23,7 @@ This project implements a classic three-digit jackpot machine using synchronous 
 ## 🏗️ Architecture & How It Works
 
 ### System Block Diagram
-```
-    100 MHz Clock (CLK)
-           ↓
-    ┌─────────────────┐
-    │   Clock Divider │
-    └────────┬────────┘
-             ↓
-    ┌────────┴────────────┐
-    │                     │
- clk_slow (20-bit)  clk_med (18-bit)  clk_fast (12-bit)
-    │                     │
-    ↓                     ↓
- [3x Counters]      [State Machine]
-    ↓                     ↓
- [MUX & 7seg]        [Control Logic]
-    │                     ↓
-    └─────────→ [Jackpot Detection]
-                     ↓
-               [RGB LEDs & Display PWM]
-```
+![FPGA Board](images/program structure.png)
 
 ### Detailed Component Description
 
