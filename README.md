@@ -1,4 +1,4 @@
-# Digilent Nexus A7 Jackpot Machine
+# VHDL Jackpot Mackine on Digilent Nexus A7 FPGA board
 
 A digital slot machine implemented in VHDL for the Xilinx Nexus A7 FPGA board. Press three buttons to stop the counters—if all three digits match, you've hit the jackpot! The display flashes (via PWM) to celebrate your win.
 
