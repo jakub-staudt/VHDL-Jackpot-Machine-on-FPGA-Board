@@ -335,27 +335,12 @@ when "10" =>
 
 ---
 
-## 🎯 Future Enhancements
-
-1. **Button Debouncing**: Add external RC filters or debouncing logic to prevent spurious presses
-2. **Sound Effects**: Integrate a piezo speaker for jackpot tone
-3. **Money Counter**: Track total winnings on display
-4. **Adjustable Difficulty**: Change counter speed based on game mode
-5. **Multi-Reel Animation**: Add smoothing effects between digits
-6. **Score Display**: Show distance from previous jackpot
-7. **BCD Mode**: Use `bin4_to_bcd5.vhd` to display 0-15 as BCD (0-9, A-F)
-
----
-
 ## 📚 References
 
 - **Xilinx Nexus A7 Documentation**: [Digilent Nexus A7 Reference Manual](https://digilent.com/reference/programmable-logic/nexus-a7/reference-manual)
-- **VHDL Design Patterns**: Toggle Flip-Flops, State Machines, Synchronous Design
-- **7-Segment Display**: Common cathode, active-low control
-- **PWM Concepts**: Pulse width modulation for intensity control
 
 ---
 
 **Last Updated**: November 2025  
 **Target Platform**: Xilinx Nexus A7 FPGA (Digilent)  
-**Language**: VHDL (IEEE 1076)
+**Language**: VHDL
